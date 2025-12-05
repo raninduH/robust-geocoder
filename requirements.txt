@@ -1,0 +1,7 @@
+pandas
+pgeocode
+requests
+python-dotenv
+geopy
+SPARQLWrapper; extra == 'wikidata'
+duckduckgo-search; extra == 'duckduckgo'
