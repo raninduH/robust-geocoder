@@ -1,0 +1,94 @@
+Metadata-Version: 2.4
+Name: robust-geocoder
+Version: 0.1.0
+Summary: A comprehensive geocoding library with multiple fallback providers and postal code lookup.
+Home-page: https://github.com/raninduH/robust-geocoder
+Author: Ranindu Harischandra
+Author-email: raninduharischandra12@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: pgeocode
+Requires-Dist: requests
+Requires-Dist: python-dotenv
+Requires-Dist: geopy
+Requires-Dist: concurrent-futures; python_version < "3.2"
+Requires-Dist: SPARQLWrapper; extra == "wikidata"
+Requires-Dist: duckduckgo-search; extra == "duckduckgo"
+Provides-Extra: wikidata
+Requires-Dist: SPARQLWrapper; extra == "wikidata"
+Provides-Extra: duckduckgo
+Requires-Dist: duckduckgo-search; extra == "duckduckgo"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# Robust Geocoder
+
+
+A comprehensive geocoding library with multiple fallback providers. Supports single location queries and parallel batch processing.
+
+## Features
+- Multiple geocoding providers with fallback logic:
+  1. Geopy Nominatim (OpenStreetMap)
+  2. Wikidata SPARQL
+  3. Photon API
+  4. DuckDuckGo Instant Answer (free)
+  5. Serper API (optional, requires API key)
+- Batch geocoding with parallel processing
+- Input cleaning and coordinate validation
+- Provider usage statistics
+- Separate function for postal code geocoding
+
+## Installation
+```bash
+pip install .
+```
+
+## Usage
+```python
+from robust_geocoder import GeocodeFallback
+
+# Initialize for Sri Lanka
+geocoder = GeocodeFallback(country_code='LK', bounds=(5.9, 9.9, 79.5, 82.0))
+
+# Single location (city/district)
+result = geocoder.geocode_location("Colombo", verbose=True)
+
+# Batch geocoding
+locations = [
+  {'location': 'Colombo', 'district': 'Colombo'},
+  {'location': 'Kandy', 'district': 'Kandy'},
+]
+results = geocoder.geocode_batch(locations, num_threads=4, verbose=True)
+
+# Postal code lookup (returns coordinates for valid postal codes)
+postal_result = geocoder.geocode_postal_code("00100")
+print(postal_result)
+```
+
+## Requirements
+- pandas
+- pgeocode
+- requests
+- python-dotenv
+- geopy
+- SPARQLWrapper (optional, for Wikidata)
+- duckduckgo-search (optional, for DuckDuckGo)
+
+## Environment Variables
+- `SERPER_API_KEY` (optional, for Serper API)
+
+## License
+MIT

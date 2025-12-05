@@ -1,0 +1,20 @@
+pandas
+pgeocode
+requests
+python-dotenv
+geopy
+
+[:extra == "duckduckgo"]
+duckduckgo-search
+
+[:extra == "wikidata"]
+SPARQLWrapper
+
+[:python_version < "3.2"]
+concurrent-futures
+
+[duckduckgo]
+duckduckgo-search
+
+[wikidata]
+SPARQLWrapper

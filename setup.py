@@ -6,10 +6,14 @@ setup(
     description="A comprehensive geocoding library with multiple fallback providers and postal code lookup.",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
-    author_email="your.email@example.com",
-    url="https://github.com/yourusername/geocode-fallback-library",
+    author="Ranindu Harischandra",
+    author_email="raninduharischandra12@gmail.com",
+    url="https://github.com/raninduH/robust-geocoder",
     py_modules=["geocode_fallback_library"],
+    keywords=[
+        "geocoding", "postal code", "address lookup", "location", "coordinates", "fallback", "Sri Lanka", "OpenStreetMap", "photon", "wikidata", "duckduckgo", "serper"
+    ],
+    license="MIT",
     install_requires=[
         "pandas",
         "pgeocode",  # still required for postal code lookup
