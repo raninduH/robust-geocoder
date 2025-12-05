@@ -18,7 +18,7 @@ A comprehensive geocoding library with multiple fallback providers. Supports sin
 
 ## Installation
 ```bash
-pip install .
+pip install robust_geocoder
 ```
 
 ## Usage
